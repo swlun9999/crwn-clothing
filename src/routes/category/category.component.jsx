@@ -10,7 +10,7 @@ import "./category.styles.scss";
 const Category = () => {
   const { category } = useParams();
   const { products } = useContext(ProductsContext);
-  const [showProducts, setShowProducts] = useState(products);
+  const [showProducts, setShowProducts] = useState([]);
 
   useEffect(() => {
     setShowProducts(products[category]);
