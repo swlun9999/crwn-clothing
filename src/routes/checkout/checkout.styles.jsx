@@ -15,15 +15,15 @@ export const Header = styled.div`
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;
-
-  &:last-child {
-    width: 8%;
-  }
 `;
 
 export const HeaderBlock = styled(Header)`
   text-transform: capitalize;
   width: 23%;
+
+  &:last-child {
+    width: 8%;
+  }
 `;
 
 export const Total = styled.span`

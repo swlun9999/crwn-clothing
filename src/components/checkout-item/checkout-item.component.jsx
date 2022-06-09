@@ -7,6 +7,8 @@ import {
   ImageContainer,
   Details,
   QuantityDisplay,
+  Value,
+  Arrow,
   RemoveButton,
 } from "./checkout-item.styles.jsx";
 
@@ -27,13 +29,9 @@ const CheckoutItem = ({ item }) => {
       </ImageContainer>
       <Details>{name}</Details>
       <QuantityDisplay>
-        <div className="arrow" onClick={deductItemHandler}>
-          &#10094;
-        </div>
-        <span className="value">{quantity}</span>
-        <div className="arrow" onClick={addItemHandler}>
-          &#10095;
-        </div>
+        <Arrow onClick={deductItemHandler}>&#10094;</Arrow>
+        <Value>{quantity}</Value>
+        <Arrow onClick={addItemHandler}>&#10095;</Arrow>
       </QuantityDisplay>
       <Details>{price}</Details>
       <RemoveButton onClick={removeItemHandler}>&#10005;</RemoveButton>

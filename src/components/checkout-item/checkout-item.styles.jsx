@@ -26,14 +26,14 @@ export const Details = styled.div`
 
 export const QuantityDisplay = styled(Details)`
   display: flex;
+`;
 
-  .arrow {
-    cursor: pointer;
-  }
+export const Arrow = styled.div`
+  cursor: pointer;
+`;
 
-  .value {
-    margin: 0 10px;
-  }
+export const Value = styled.span`
+  margin: 0 10px;
 `;
 
 export const RemoveButton = styled.button`
