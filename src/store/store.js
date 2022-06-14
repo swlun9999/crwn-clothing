@@ -1,10 +1,15 @@
-import { createStore, compose, applyMiddleware } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import { logger } from "redux-logger";
 
-import { rootReducer } from "./root-reducer";
+import { userReducer } from "./user/user.reducer";
+import { productsReducer } from "./products/products.reducer";
 
-const middleWares = [logger];
+export const reducer = {
+  user: userReducer,
+  products: productsReducer,
+};
 
-const composedEnhancers = compose(applyMiddleware(...middleWares));
-
-export const store = createStore(rootReducer, undefined, composedEnhancers);
+export const store = configureStore({
+  reducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+});
