@@ -9,6 +9,7 @@ import { ReactComponent as CrwnLogo } from "../../assets/crown.svg";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import { CartContext } from "../../context/cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import {
   NavigationContainer,
@@ -18,7 +19,7 @@ import {
 } from "./navigation.styles.jsx";
 
 const Navigation = () => {
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   const { isCartOpen } = useContext(CartContext);
 
   return (

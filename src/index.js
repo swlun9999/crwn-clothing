@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import App from "./App";
 import { CartProvider } from "./context/cart.context";
 import { ProductsProvider } from "./context/products.context";
-import { UserProvider } from "./context/user.context";
 import { store } from "./store/store";
 
 import "./index.scss";
