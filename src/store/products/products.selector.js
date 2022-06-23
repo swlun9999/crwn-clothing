@@ -10,7 +10,6 @@ export const selectProducts = createSelector(
 export const selectProductsMap = createSelector(
   [selectProducts],
   (products) => {
-    console.log(products);
     return (
       Array.isArray(products) &&
       products.reduce((accArray, product) => {
@@ -21,4 +20,9 @@ export const selectProductsMap = createSelector(
       }, [])
     );
   }
+);
+
+export const selectIsLoading = createSelector(
+  [selectProductsReducer],
+  (productsSlice) => productsSlice.isLoading
 );

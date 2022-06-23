@@ -1,5 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 //import { logger } from "redux-logger";
+import thunk from "redux-thunk";
 import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
@@ -22,12 +23,17 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
-const composedEnhancers = [process.env.NODE_ENV === 'development' && logger].filter(Boolean);
+const composedEnhancers = [
+  process.env.NODE_ENV === "development" && logger,
+  thunk,
+].filter(Boolean);
 
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false }).concat(composedEnhancers),
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      composedEnhancers
+    ),
 });
 
 export const persistor = persistStore(store);
